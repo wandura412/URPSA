@@ -38,7 +38,7 @@ def push_fragments_to_center(molecules, step_size=1):
     :return molecules: None
     """
 
-    for molecule in molecules:
+    for molecules in molecules:
         spherically_converge_to_center(molecule, step_size)
 
 
