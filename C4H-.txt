@@ -1,0 +1,53 @@
+[project]
+project_name = C4H-new8
+
+
+[controls]
+# set this as false for now
+update_with_optimized_coordinates = True
+step_size = 0.1
+step_count = 20
+stop_distance_factor = 0.8
+dynamic_fragment_replacement = True
+ADD_COM_CONST = True
+
+sphere_radius = 3
+# number of iterations needs to run with different orientations
+n_iterations = 100
+
+# Total_random or statistically_even or False
+spherical_placement = statistically_even
+
+
+[gaussian]
+number_of_cores = 8
+memory = 6GB
+#method = #N b3lyp/3-21g opt=AddGIC  nosymm
+method =#N opt(maxcycle=1000,AddGIC) wb97xd/def2tzvp scf=(xqc,maxcon=128,maxcyc=512,conver=8) nosymm
+#method =#N opt(maxcycle=100,AddGIC) HF/3-21g* scf(maxcyc=120,xqc) nosymm
+# use dft
+
+[molecules]
+charge = -1
+multiplicity = 1
+number_of_molecules = 5 
+
+0 = C 0.000 0.000 0.0000
+
+1 = C 0.000 0.000 0.000
+
+2 = C 0.000 0.0000 0.0000
+
+3 = C 0.0000 0.00 0.000
+
+4 = H 0.000 0.000 0.000
+
+
+
+
+[Additional]
+
+
+
+
+

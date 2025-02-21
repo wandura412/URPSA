@@ -1,0 +1,59 @@
+<<<<<<< HEAD:exampleInput.txt
+# This is a comment
+[project]
+project_name = test48927
+input_file_name = Test
+
+[controls]
+# set this as false for now
+update_with_optimized_coordinates = True
+step_size = 0.1
+step_count = 40
+stop_distance_factor = 0.4
+stress_release = -1:50:57
+
+
+
+# Total_random or statistically_even or False
+spherical_placement = statistically_even
+
+# add COM constraints = True
+ADD_COM_CONST = False
+dynamic_fragment_replacement = True
+
+[gaussian]
+number_of_cores = 8
+memory = 8GB
+#method = #N b3lyp/3-21g opt=AddGIC  nosymm
+method =#N opt(maxcycle=600,AddGIC) PM6 scf(maxcyc=600,xqc) nosymm
+#method =#N opt(maxcycle=100,AddGIC) HF/3-21g* scf(maxcyc=120,xqc) nosymm
+# use dft
+
+
+
+[molecules]
+charge = 0
+multiplicity = 2
+number_of_molecules = 2
+
+0 = C -0.69272980 -0.81618654 0.00000000\
+H -0.33605696 -0.31178835 0.87365150\
+H -0.33605696 -0.31178835 -0.87365150\
+H -1.76272980 -0.81617336 0.00000000\
+O -0.21607949 -2.16440926 0.00000000\
+H -0.53442410 -2.61684869 0.78457331
+
+# add \ to the end of a line if the next line continues
+1 = O -0.21607949 -2.16440926 0.00000000\
+H -0.53442410 -2.61684869 0.7845733
+
+[Additional]
+# use /- instead of = sign when using inside values
+
+constraints = XCm1 (Inactive) /- XCntr(1-6) \
+YCm1 (Inactive) /- YCntr(1-6) \
+ZCm1 (Inactive) /- ZCntr(1-6)\
+XCm2 (Inactive)  /- XCntr(7)\
+YCm2 (Inactive)  /- YCntr(7) \
+ZCm2 (Inactive) /- ZCntr(7)\
+F1F2(FREEZE) /- sqrt[(XCm1-XCm2)^2+(YCm1-YCm2)^2+(ZCm1-ZCm2)^2]*0.529177

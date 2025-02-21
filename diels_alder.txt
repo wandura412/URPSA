@@ -1,0 +1,56 @@
+[project]
+project_name = deils1
+
+
+[controls]
+# set this as false for now
+update_with_optimized_coordinates = True
+step_size = 0.1
+step_count = 100
+stop_distance_factor = 0.4
+stress_release = -1:401:402
+dynamic_fragment_replacement = True
+
+sphere_radius = 10
+# number of iterations needs to run with different orientations
+n_iterations = 5
+
+# Total_random or statistically_even or False
+spherical_placement = statistically_even
+
+
+[gaussian]
+number_of_cores = 4
+memory = 6GB
+#method = #N b3lyp/3-21g opt=AddGIC  nosymm
+method =#N opt(maxcycle=600,AddGIC,modredundant) PM3 SCF(MaxCycle=300) nosymm
+#method =#N opt(maxcycle=100,AddGIC) HF/3-21g* scf(maxcyc=120,xqc) nosymm
+# use dft
+
+[molecules]
+charge = 0
+multiplicity = 1
+number_of_molecules = 2
+
+0 = C                  1.31988500    0.91615000    0.00000000\
+ H                  1.89112600    0.00761400    0.00000000\
+ H                  1.88382200    1.82866300    0.00000000\
+ C                  0.00000000    0.92731700    0.00000000\
+ H                 -0.50664600    1.87544200    0.00000000\
+ C                 -0.89261300   -0.25132100    0.00000000\
+ H                 -1.94256100   -0.02059200    0.00000000\
+ C                 -0.52415000   -1.51877900    0.00000000\
+ H                  0.50520000   -1.82241000    0.00000000\
+ H                 -1.24967100   -2.30892300    0.00000000
+
+
+1 =  C   0.000000    0.657550    0.000000\
+     H  -0.911700    1.224600    0.000000\
+     H  0.911468    1.224949    0.000000\
+     C  0.000000   -0.657550    0.000000\
+     H  0.911700   -1.224600    0.000000\
+     H  -0.911468   -1.224949    0.000000
+
+
+[Additional]
+

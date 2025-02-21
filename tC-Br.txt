@@ -1,0 +1,69 @@
+[project]
+project_name = tC-br_h20
+
+input_file_name = Test
+
+[controls]
+# set this as false for now
+update_with_optimized_coordinates = True
+step_size = 0.1
+step_count = 40
+stop_distance_factor = 0.4
+stress_release = -1:41:42
+dynamic_fragment_replacement = False
+ADD_COM_CONST = True
+
+sphere_radius = 5
+# number of iterations needs to run with different orientations
+n_iterations = 10
+
+# Total_random or statistically_even or False
+spherical_placement = statistically_even
+
+
+[gaussian]
+number_of_cores = 4
+memory = 6GB
+#method = #N b3lyp/3-21g opt=AddGIC  nosymm
+method =#N opt(maxcycle=300,AddGIC) wb97xd/6-31g* scf=(xqc,maxcon=128,maxcyc=512,conver=8) nosymm
+#method =#N opt(maxcycle=100,AddGIC) HF/3-21g* scf(maxcyc=120,xqc) nosymm
+# use dft
+
+[molecules]
+charge = 0
+multiplicity = 1
+number_of_molecules = 2
+
+0 = C                 -0.86051400    0.00022900    0.00002600\
+ C                 -1.29848700   -0.71298900    1.27329000\
+ H                 -0.93408900   -1.73948200    1.29589400\
+ H                 -0.93354100   -0.19677700    2.16055600\
+ H                 -2.39210900   -0.73342400    1.31017900\
+ C                 -1.29838100   -0.74636900   -1.25405500\
+ H                 -2.39196400   -0.77050500   -1.28869500\
+ H                 -0.93630000   -0.25203600   -2.15488900\
+ H                 -0.93135000   -1.77213800   -1.25110500\
+ C                 -1.29784500    1.45972500   -0.01928300\
+ H                 -0.93288900    1.99254500    0.85812200\
+ H                 -0.93330000    1.96930300   -0.91055200\
+ H                 -2.39145800    1.50233300   -0.01971400\
+ Br                 1.18023900   -0.00009700    0.00001000
+
+1 =  O                  1.50134241    3.20107317    2.70077699\
+ H                  2.46134241    3.20107317    2.70077699\
+ H                  1.18088782    4.10600900    2.70077699
+
+
+[Additional]
+
+
+
+
+
+
+
+
+
+
+
+

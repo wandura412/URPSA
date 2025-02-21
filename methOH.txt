@@ -1,0 +1,48 @@
+[project]
+project_name = methanol+OH-16
+
+
+
+[controls]
+step_size = 0.1
+step_count = 35
+stop_distance_factor = 0.8
+sphere_radius = 3
+update_with_optimized_coordinates = True
+dynamic_fragment_replacement = True
+cutoff_energy_gap = 1000
+optimize_the_final_particle = True
+
+
+# Total_random or statistically_even or False
+spherical_placement = statistically_even
+
+# add COM constraints = True
+ADD_COM_CONST = True
+
+
+[gaussian]
+number_of_cores = 6
+memory = 4GB
+method =#N opt(maxcycle=2000,AddGIC) wb97xd/6-31g scf(maxcyc=300,xqc)
+
+
+[molecules]
+charge = 0
+multiplicity = 2
+number_of_molecules = 2
+
+0 = C                 -5.90452225   -0.72864321    0.00000000\
+ H                 -5.54786783   -1.73745321    0.00000000\
+ H                 -5.54784941   -0.22424502   -0.87365150\
+ H                 -6.97452225   -0.72863002    0.00000000\
+ O                 -5.42784733   -0.05454095    1.16759033\
+ H                 -5.74618669    0.85114103    1.16713827
+
+# add \ to the end of a line if the next line continues
+1 = H                 -5.03586146   -1.67107170    5.94968651\
+ O                 -4.07586146   -1.67107170    5.94968651
+
+
+
+[Additional]

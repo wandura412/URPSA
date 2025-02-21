@@ -1,0 +1,42 @@
+[project]
+project_name = N2O2_example
+
+
+
+[controls]
+step_size = 0.1
+step_count = 35
+stop_distance_factor = 0.6
+update_with_optimized_coordinates = True
+dynamic_fragment_replacement = Flase
+
+
+
+# Total_random or statistically_even or False
+spherical_placement = statistically_even
+
+# add COM constraints = True
+ADD_COM_CONST = True
+
+
+[gaussian]
+number_of_cores = 4
+memory = 4GB
+method =#N opt(maxcycle=200,AddGIC) WB97XD/6-31G* scf(maxcyc=300,xqc)
+
+
+[molecules]
+charge = 0
+multiplicity = 1
+number_of_molecules = 2
+
+0 = N 0.000 0.0000 0.00000000\
+ N 1.1000 0.000 0.0000
+
+# add \ to the end of a line if the next line continues
+1 = O 0.00000 0.00000 0.00000000\
+    O 0.90000 0.0000 0.00000
+
+
+[Additional]
+

@@ -1,0 +1,63 @@
+@startuml
+title Flowchart for get_molecules Function
+
+start
+
+:Receive atomlist and factor;
+:Initialize list_of_molecules as empty;
+
+while (Is atomlist not empty?) is (Yes)
+    :Create a new Molecule with the first atom from atomlist;
+    :Remove the first atom from atomlist;
+
+    while (Are there more atoms to add to the Molecule?) is (Yes)
+        :Set no_more_atoms_to_add to True;
+        :Initialize to_remove as empty;
+
+        while (Check each atom in the molecule) is (Yes)
+            while (Check each remaining atom in atomlist) is (Yes)
+                if (Distance between atoms < factor * (c_radius1 + c_radius2)) then (Yes)
+                    :Add alone_atom to to_remove;
+                    :Set no_more_atoms_to_add to False;
+                endif
+            endwhile
+        endwhile
+
+        :Remove atoms in to_remove from atomlist and add to the molecule;
+    endwhile
+
+    :Add the Molecule to list_of_molecules;
+endwhile
+
+:Return list_of_molecules;
+
+stop
+@enduml
+
+
+
+@startuml
+title Abstract Flowchart for get_molecules Function
+
+start
+
+:Receive list of atoms and threshold factor;
+:Initialize an empty list of molecules;
+
+while (Are there atoms remaining in the list?) is (Yes)
+    :Create a new molecule with one atom;
+    :Remove that atom from the list;
+
+    while (Can more atoms be added to the molecule?) is (Yes)
+        :Find nearby atoms based on the threshold;
+        :Add nearby atoms to the molecule;
+        :Remove those atoms from the list;
+    endwhile
+
+    :Add the molecule to the list of molecules;
+endwhile
+
+:Return the list of molecules;
+
+stop
+@enduml
